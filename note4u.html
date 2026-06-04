@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html class="dark scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Note4U - Marketing Landing Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&amp;family=Geist:wght@600;700&amp;family=Inter:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#e5e2e1",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed": "#e9ddff",
+                        "primary": "#4cd7f6",
+                        "on-secondary-fixed": "#23005c",
+                        "on-error": "#690005",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "on-tertiary-container": "#313c4f",
+                        "on-primary-fixed": "#001f26",
+                        "on-primary-container": "#00424f",
+                        "on-surface-variant": "#bcc9cd",
+                        "on-secondary": "#3c0091",
+                        "secondary-container": "#571bc1",
+                        "outline": "#869397",
+                        "primary-fixed": "#acedff",
+                        "surface-container-highest": "#353534",
+                        "surface-tint": "#4cd7f6",
+                        "inverse-on-surface": "#313030",
+                        "background": "#131313",
+                        "surface-dim": "#131313",
+                        "secondary": "#d0bcff",
+                        "primary-fixed-dim": "#4cd7f6",
+                        "inverse-primary": "#00687a",
+                        "surface-variant": "#353534",
+                        "tertiary-fixed-dim": "#bcc7de",
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary-container": "#9ca7be",
+                        "surface-container-high": "#2a2a2a",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed": "#d8e3fb",
+                        "surface-bright": "#393939",
+                        "error-container": "#93000a",
+                        "surface-container-low": "#1c1b1b",
+                        "on-tertiary-fixed": "#111c2d",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "on-secondary-container": "#c4abff",
+                        "tertiary": "#bcc7de",
+                        "on-tertiary": "#263143",
+                        "on-primary": "#003640",
+                        "on-background": "#e5e2e1",
+                        "surface": "#131313",
+                        "on-tertiary-fixed-variant": "#3c475a",
+                        "primary-container": "#06b6d4",
+                        "on-surface": "#e5e2e1",
+                        "surface-container": "#201f1f",
+                        "outline-variant": "#3d494c",
+                        "on-primary-fixed-variant": "#004e5c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-lg": "24px",
+                        "container-padding": "16px",
+                        "unit": "4px",
+                        "stack-sm": "4px",
+                        "stack-md": "12px",
+                        "gutter": "8px"
+                    },
+                    "fontFamily": {
+                        "label-mono": ["JetBrains Mono"],
+                        "headline-md": ["Geist"],
+                        "display-lg": ["Geist"],
+                        "body-md": ["Inter"],
+                        "headline-sm": ["Geist"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-mono": ["11px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-sm": ["18px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "body-sm": ["12px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .vst-glow {
+            box-shadow: 0 0 15px rgba(76, 215, 246, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col pt-20">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding py-4 bg-background/80 backdrop-blur-md border-b border-outline-variant">
+<div class="font-headline-md text-headline-md font-bold text-primary tracking-tighter">
+            Note4U
+        </div>
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#how">How It Works</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#price">Pricing</a>
+</div>
+<button class="font-label-mono text-label-mono text-primary border border-primary px-4 py-2 rounded hover:bg-primary/10 transition-colors">
+            Download VST
+        </button>
+</nav>
+<main class="flex-grow flex flex-col gap-32 pb-32">
+<!-- Hero Section -->
+<section class="w-full max-w-7xl mx-auto px-container-padding pt-16 flex flex-col lg:flex-row items-center gap-16">
+<div class="flex-1 flex flex-col gap-6">
+<h1 class="font-display-lg text-display-lg text-on-background">Struggling to Transcribe Your Ideas?</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+                    Our proprietary DSP engine analyzes audio signals in real-time, mapping complex waveforms to accurate MIDI note data with zero latency. Seamlessly integrate your physical instruments into your digital workflow without manual entry.
+                </p>
+<div class="flex gap-4 pt-4">
+<button class="bg-primary text-on-primary font-label-mono text-label-mono px-6 py-3 rounded vst-glow hover:bg-primary-fixed transition-colors">
+                        Get Started
+                    </button>
+<button class="border border-outline text-on-surface-variant font-label-mono text-label-mono px-6 py-3 rounded hover:border-primary hover:text-primary transition-colors">
+                        View Docs
+                    </button>
+</div>
+</div>
+<div class="flex-1 w-full bg-surface-container border border-outline-variant rounded-lg p-6 relative overflow-hidden">
+<!-- Mock UI Element -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none"></div>
+<div class="flex justify-between items-center border-b border-outline-variant pb-4 mb-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">power_settings_new</span>
+<span class="font-label-mono text-label-mono text-on-surface">DSP ENGINE</span>
+</div>
+<span class="font-label-mono text-label-mono text-primary animate-pulse">ACTIVE</span>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between font-label-mono text-label-mono text-on-surface-variant mb-2">
+<span>INPUT LVL</span>
+<span>-12.4 dB</span>
+</div>
+<div class="h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full w-3/4 bg-primary relative">
+<div class="absolute right-0 top-0 bottom-0 w-1 bg-white"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-4">
+<div class="bg-surface border border-outline-variant rounded p-4 flex flex-col items-center gap-2">
+<span class="font-label-mono text-label-mono text-on-surface-variant">SENSITIVITY</span>
+<div class="w-12 h-12 rounded-full border-2 border-outline-variant flex items-center justify-center relative">
+<div class="w-1/2 h-1 bg-primary absolute origin-left rotate-45 left-1/2"></div>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant rounded p-4 flex flex-col items-center gap-2">
+<span class="font-label-mono text-label-mono text-on-surface-variant">THRESHOLD</span>
+<div class="w-12 h-12 rounded-full border-2 border-outline-variant flex items-center justify-center relative">
+<div class="w-1/2 h-1 bg-primary absolute origin-left -rotate-45 left-1/2"></div>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant rounded p-4 flex flex-col items-center gap-2">
+<span class="font-label-mono text-label-mono text-on-surface-variant">QUANTIZE</span>
+<div class="w-12 h-12 rounded-full border-2 border-primary vst-glow flex items-center justify-center relative">
+<div class="w-1/2 h-1 bg-primary absolute origin-left rotate-90 left-1/2"></div>
+</div>
+</div>
+</div>
+<div class="h-24 bg-surface border border-outline-variant rounded relative overflow-hidden flex items-end">
+<!-- Abstract Waveform -->
+<div class="w-full h-1/2 bg-secondary/20 flex items-end gap-1 px-1">
+<div class="w-2 h-full bg-secondary/50"></div>
+<div class="w-2 h-3/4 bg-secondary/50"></div>
+<div class="w-2 h-1/2 bg-secondary/50"></div>
+<div class="w-2 h-full bg-secondary/50"></div>
+<div class="w-2 h-1/4 bg-secondary/50"></div>
+<div class="w-2 h-5/6 bg-secondary/50"></div>
+<div class="w-2 h-full bg-secondary/50"></div>
+<div class="w-2 h-1/2 bg-secondary/50"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- The Problem -->
+<section class="w-full max-w-7xl mx-auto px-container-padding">
+<h2 class="font-display-lg text-display-lg text-center text-on-background mb-16">Stop Wasting Time on Admin</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-surface-container border border-outline-variant rounded-lg p-6 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-error group-hover:bg-primary transition-colors"></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">EAR-TRANSCRIPTION IS A TIME SINK</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Spending hours manually entering MIDI notes from an audio recording breaks creative flow and introduces human error. The lag between idea and implementation is a productivity killer.
+                    </p>
+</div>
+<div class="bg-surface-container border border-outline-variant rounded-lg p-6 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-error group-hover:bg-primary transition-colors"></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">DAW EXPERTISE SHOULDN'T BE A BARRIER</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Complex routing, messy macros, and deep menu diving shouldn't be required just to get a basic melody transcribed. Technical hurdles shouldn't dictate creative output.
+                    </p>
+</div>
+<div class="bg-surface-container border border-outline-variant rounded-lg p-6 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-error group-hover:bg-primary transition-colors"></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">OUTSOURCING IS A DEPENDENCY TRAP</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Relying on external session musicians or transcription services adds cost and delay. Your workflow needs to be self-sufficient and immediate.
+                    </p>
+</div>
+</div>
+</section>
+<!-- The Solution -->
+<section class="w-full max-w-7xl mx-auto px-container-padding flex flex-col items-center">
+<h2 class="font-display-lg text-display-lg text-center text-on-background mb-12">Audio to MIDI in Seconds</h2>
+<div class="w-full max-w-4xl bg-surface-container-high border border-outline-variant rounded-lg shadow-2xl overflow-hidden mb-8">
+<!-- VST Header -->
+<div class="bg-surface-container-highest px-4 py-2 border-b border-outline-variant flex justify-between items-center">
+<span class="font-label-mono text-label-mono text-on-surface">REAL-TIME ANALYZER</span>
+<div class="flex gap-2">
+<div class="w-2 h-2 rounded-full bg-outline"></div>
+<div class="w-2 h-2 rounded-full bg-outline"></div>
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+</div>
+</div>
+<!-- VST Body -->
+<div class="p-8 flex flex-col md:flex-row gap-8 items-center bg-surface-dim">
+<div class="flex-1 w-full relative h-48 border border-outline-variant rounded bg-surface">
+<!-- Simulated Spectrogram/Grid -->
+<div class="absolute inset-0" style="background-image: linear-gradient(to right, #3d494c 1px, transparent 1px), linear-gradient(to bottom, #3d494c 1px, transparent 1px); background-size: 20px 20px; opacity: 0.2;"></div>
+<div class="absolute top-1/4 left-1/4 w-1/2 h-12 bg-primary/20 border border-primary rounded flex items-center justify-center">
+<span class="font-label-mono text-label-mono text-primary">C4 Detected</span>
+</div>
+<div class="absolute top-1/2 left-1/3 w-1/4 h-12 bg-secondary/20 border border-secondary rounded flex items-center justify-center mt-4">
+<span class="font-label-mono text-label-mono text-secondary">E4 Detected</span>
+</div>
+</div>
+<div class="w-full md:w-48 flex flex-col gap-4">
+<div class="bg-surface border border-outline-variant p-3 rounded">
+<span class="font-label-mono text-label-mono text-on-surface-variant block mb-2">PITCH EST</span>
+<div class="font-label-mono text-label-mono text-primary text-xl">99.8%</div>
+</div>
+<div class="bg-surface border border-outline-variant p-3 rounded">
+<span class="font-label-mono text-label-mono text-on-surface-variant block mb-2">LATENCY</span>
+<div class="font-label-mono text-label-mono text-on-surface text-xl">1.2ms</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-primary-container text-on-primary-container px-8 py-4 rounded-full font-label-mono text-label-mono flex items-center gap-4">
+<span class="material-symbols-outlined text-xl">bolt</span>
+                Zero Latency Workflow • Lifetime License $199.99
+            </div>
+</section>
+<!-- How It Works -->
+ <div  id="how"></div>
+<section class="w-full max-w-7xl mx-auto px-container-padding" >
+<h2 class="font-display-lg text-display-lg text-center text-on-background mb-16">The Note4U Workflow</h2>
+<div class="flex flex-col gap-8">
+<!-- Step 1 -->
+<div class="flex flex-col md:flex-row gap-8 items-center bg-surface-container rounded-lg p-8 border border-outline-variant">
+<div class="flex-1">
+<div class="font-label-mono text-label-mono text-primary mb-2">STEP 01</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Input Audio</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Drop your audio file into the VST or route a live signal. The engine begins analysis instantly.</p>
+</div>
+<div class="flex-1 w-full h-32 bg-surface border border-outline-variant rounded flex items-center justify-center overflow-hidden relative">
+<div class="w-full h-1/2 bg-on-surface-variant/20 flex items-center px-4">
+<div class="w-full h-1 bg-primary relative">
+<div class="absolute w-4 h-4 bg-primary rounded-full -top-1.5 left-1/4"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col md:flex-row-reverse gap-8 items-center bg-surface-container rounded-lg p-8 border border-outline-variant">
+<div class="flex-1">
+<div class="font-label-mono text-label-mono text-secondary mb-2">STEP 02</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Refine &amp; Review</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Adjust sensitivity and quantization thresholds to clean up the detection before committing.</p>
+</div>
+<div class="flex-1 w-full bg-surface border border-outline-variant rounded p-4 flex flex-col gap-4">
+<div>
+<div class="flex justify-between font-label-mono text-label-mono text-on-surface-variant mb-1">
+<span>SENSITIVITY</span>
+</div>
+<input class="w-full accent-secondary" type="range" value="70"/>
+</div>
+<div>
+<div class="flex justify-between font-label-mono text-label-mono text-on-surface-variant mb-1">
+<span>QUANTIZE</span>
+</div>
+<input class="w-full accent-secondary" type="range" value="1/16"/>
+</div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col md:flex-row gap-8 items-center bg-surface-container rounded-lg p-8 border border-outline-variant">
+<div class="flex-1">
+<div class="font-label-mono text-label-mono text-primary mb-2">STEP 03</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">DAW Integration</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Drag and drop the generated MIDI clip directly onto your instrument track. Done.</p>
+</div>
+<div class="flex-1 w-full h-32 bg-surface border border-outline-variant rounded relative overflow-hidden" style="background-image: linear-gradient(to right, #3d494c 1px, transparent 1px), linear-gradient(to bottom, #3d494c 1px, transparent 1px); background-size: 16px 16px;">
+<div class="absolute top-4 left-4 w-16 h-4 bg-primary/80 rounded-sm"></div>
+<div class="absolute top-12 left-24 w-24 h-4 bg-primary/80 rounded-sm"></div>
+<div class="absolute top-20 left-48 w-12 h-4 bg-primary/80 rounded-sm"></div>
+</div>
+</div>
+</div>
+</section>
+<div id="price"></div>
+<!-- Pricing -->
+<section class="w-full max-w-7xl mx-auto px-container-padding">
+<h2 class="font-display-lg text-display-lg text-center text-on-background mb-16">No Subscriptions. No Bull.</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+<!-- Core License -->
+<div class="bg-surface-container border border-outline-variant rounded-lg p-8 flex flex-col">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Core License</h3>
+<div class="font-display-lg text-display-lg text-primary mb-6">$199.99</div>
+<ul class="font-body-md text-body-md text-on-surface-variant flex flex-col gap-3 mb-8 flex-grow">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">check</span> Full VST3/AU/AAX Plugin</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">check</span> Real-time Analysis Engine</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">check</span> Lifetime Updates (v1.x)</li>
+</ul>
+<button class="w-full border border-outline text-on-surface font-label-mono text-label-mono py-3 rounded hover:border-primary hover:text-primary transition-colors">
+                        Buy Core
+                    </button>
+</div>
+<!-- Studio Bundle -->
+<div class="bg-surface-container-high border-2 border-primary rounded-lg p-8 flex flex-col relative">
+<div class="absolute top-0 right-0 bg-primary text-on-primary font-label-mono text-label-mono px-3 py-1 rounded-bl-lg rounded-tr-md">RECOMMENDED</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Studio Bundle</h3>
+<div class="font-display-lg text-display-lg text-primary mb-6">$299.99</div>
+<ul class="font-body-md text-body-md text-on-surface-variant flex flex-col gap-3 mb-8 flex-grow">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">check</span> Everything in Core</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">check</span> Advanced Polyphonic Detection</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">check</span> Priority Support</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">check</span> 3 Machine Activations</li>
+</ul>
+<button class="w-full bg-primary text-on-primary font-label-mono text-label-mono py-3 rounded vst-glow hover:bg-primary-fixed transition-colors">
+                        Buy Studio Bundle
+                    </button>
+</div>
+</div>
+<div class="mt-8 text-center">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Just need it for one track? <a class="text-primary hover:underline" href="#">Pay-Per-Project</a> for $15.
+                </p>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="w-full max-w-4xl mx-auto px-container-padding text-center bg-surface-container border border-outline-variant rounded-xl p-12 relative overflow-hidden">
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-background to-background pointer-events-none"></div>
+<div class="relative z-10">
+<h2 class="font-display-lg text-display-lg text-on-background mb-8">Ready to Level Up Your Workflow?</h2>
+<button class="bg-primary text-on-primary font-label-mono text-label-mono px-8 py-4 rounded-lg vst-glow hover:bg-primary-fixed transition-colors text-lg mb-6">
+                    DOWNLOAD NOTE4U NOW
+                </button>
+<div class="flex justify-center gap-4 font-label-mono text-label-mono text-on-surface-variant text-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">laptop_mac</span> macOS 10.14+</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">desktop_windows</span> Windows 10+</span>
+<span class="flex items-center gap-1">VST3 / AU / AAX</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg px-container-padding flex flex-col md:flex-row justify-between items-center gap-gutter bg-surface-container-lowest border-t border-outline-variant mt-auto">
+<div class="font-headline-sm text-headline-sm font-bold text-outline">
+            Note4U
+        </div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary-fixed transition-colors" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary-fixed transition-colors" href="#">Documentation</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary-fixed transition-colors" href="#">Support</a>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+            © 2024 VJAK Labs. All rights reserved.
+        </div>
+</footer>
+</body></html>
