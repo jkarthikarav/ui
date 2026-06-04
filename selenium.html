@@ -1,0 +1,341 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Selenium - Browser Automation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;600&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e1e3e4",
+                        "surface-dim": "#d9dadb",
+                        "tertiary-container": "#ff6968",
+                        "surface-container-low": "#f3f4f5",
+                        "outline": "#6f7b68",
+                        "background": "#f8f9fa",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#edeeef",
+                        "on-primary-container": "#073b00",
+                        "primary": "#146e00",
+                        "surface-container-highest": "#e1e3e4",
+                        "tertiary-fixed": "#ffdad8",
+                        "surface-tint": "#146e00",
+                        "on-tertiary-fixed": "#410006",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#43b02a",
+                        "on-surface": "#191c1d",
+                        "on-tertiary-container": "#6c000f",
+                        "on-surface-variant": "#3f4a39",
+                        "on-secondary-fixed": "#0c1c2e",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#022100",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#2e3132",
+                        "secondary": "#505f74",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb3af",
+                        "surface-container-high": "#e7e8e9",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-tertiary-fixed-variant": "#930018",
+                        "primary-fixed": "#8cfc6d",
+                        "inverse-primary": "#71df54",
+                        "on-primary-fixed-variant": "#0d5300",
+                        "surface": "#f8f9fa",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#d4e4fd",
+                        "outline-variant": "#becab5",
+                        "primary-fixed-dim": "#71df54",
+                        "on-background": "#191c1d",
+                        "on-secondary-fixed-variant": "#39485c",
+                        "tertiary": "#bd0d26",
+                        "on-secondary-container": "#56657b",
+                        "surface-bright": "#f8f9fa",
+                        "secondary-fixed-dim": "#b8c8e0",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#d4e4fd",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "margin-x": "32px",
+                        "section-gap": "80px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Manrope"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "code": ["JetBrains Mono"],
+                        "headline-md": ["Manrope"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "headline-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "code": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased">
+<!-- TopNavBar -->
+<header class="fixed top-0 z-50 w-full bg-surface dark:bg-on-background border-b border-surface-variant transition-all duration-300">
+    <nav class="flex justify-between items-center w-full px-margin-x py-unit max-w-container-max mx-auto h-20">
+        <img alt="Logo" class="w-48 h-36 object-contain" src="assets/misc/selenium-seeklogo.png"/>
+        <div class="hidden lg:flex items-center gap-8">
+                <a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary font-body-md text-body-md transition-colors" href="#">Home</a>
+                <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">About</a>
+                <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Downloads</a>
+                <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Documentation</a>
+                <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Projects</a>
+                <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Support</a>
+                <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Blog</a>
+        </div>
+        <div class="flex items-center gap-4">
+            <div class="relative hidden md:block">
+                <input class="pl-10 pr-4 py-2 bg-surface-container rounded-full border-none focus:ring-2 focus:ring-primary text-body-md font-body-md w-64 transition-all" placeholder="Search..." type="text">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+            </div>
+            <button class="lg:hidden text-on-surface">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </nav>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="hero-gradient relative min-h-[614px] flex items-center overflow-hidden" data-alt="A professional developer's workspace at night with a focused software engineer working on a laptop. The lighting is moody with deep blues and blacks, highlighting the technological focus. Soft glows from screens illuminate the scene, creating a clean corporate modern aesthetic with high technical precision.">
+<div class="max-w-container-max mx-auto px-margin-x w-full py-section-gap relative z-10">
+<div class="max-w-2xl">
+<h1 class="font-display-lg text-display-lg text-primary-fixed mb-4">Selenium automates browsers.</h1>
+<p class="font-headline-md text-headline-md text-surface-container-lowest opacity-90 mb-12">What you do with that power is entirely up to you.</p>
+</div>
+</div>
+<!-- Cards Overlay -->
+
+</section><section class="relative z-20 -mt-32 px-margin-x">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- WebDriver Card -->
+<div class="bg-surface-container-lowest p-8 border border-surface-variant rounded-lg shadow-sm hover:shadow-lg transition-all group border-t-4 border-t-primary">
+<div class="flex items-start gap-4 mb-6">
+
+<h3 class="font-headline-md text-headline-md text-primary">Selenium WebDriver</h3>
+</div>
+<p class="text-on-surface-variant mb-8 h-24">Create robust, browser-based regression automation suites and tests, scale and distribute scripts across environments.</p>
+<a class="inline-flex items-center gap-2 text-primary font-bold group-hover:gap-4 transition-all uppercase tracking-wider text-sm" href="#">
+                            Learn More <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<!-- IDE Card -->
+<div class="bg-surface-container-lowest p-8 border border-surface-variant rounded-lg shadow-sm hover:shadow-lg transition-all group border-t-4 border-t-secondary">
+<div class="flex items-start gap-4 mb-6">
+
+<h3 class="font-headline-md text-headline-md text-secondary">Selenium IDE</h3>
+</div>
+<p class="text-on-surface-variant mb-8 h-24">Create scripts to aid testing through a Chrome, Firefox and Edge add-on for simple record-and-playback interactions.</p>
+<a class="inline-flex items-center gap-2 text-primary font-bold group-hover:gap-4 transition-all uppercase tracking-wider text-sm" href="#">
+                            Learn More <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<!-- Grid Card -->
+<div class="bg-surface-container-lowest p-8 border border-surface-variant rounded-lg shadow-sm hover:shadow-lg transition-all group border-t-4 border-t-tertiary">
+<div class="flex items-start gap-4 mb-6">
+
+    
+<h3 class="font-headline-md text-headline-md text-tertiary">Selenium Grid</h3>
+</div>
+<p class="text-on-surface-variant mb-8 h-24">Distribute and run tests on several machines and centrally manage multiple browsers/OS environments.</p>
+<a class="inline-flex items-center gap-2 text-primary font-bold group-hover:gap-4 transition-all uppercase tracking-wider text-sm" href="#">
+                            Learn More <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- News/Blog Section -->
+<section class="pb-section-gap px-margin-x mt-12">
+<div class="max-w-container-max mx-auto">
+<div class="flex flex-col items-center mb-16">
+<span class="text-primary font-bold uppercase tracking-widest text-sm mb-2">The Latest</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Selenium Blog</h2>
+<p class="text-on-surface-variant mt-2">Keep up to date with all Selenium news here!</p>
+</div>
+<div class="grid grid-cols-1 gap-6 max-w-4xl mx-auto">
+<!-- Post 1 -->
+<article class="bg-surface-container-low p-6 rounded-lg border border-transparent hover:border-primary-container transition-all group">
+<div class="flex flex-col md:flex-row md:justify-between mb-4">
+<h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">Ending Support for Python 3.9</h3>
+<span class="text-sm text-on-surface-variant font-label-md">Wednesday, October 08, 2025</span>
+</div>
+<p class="text-on-surface-variant mb-4">By Corey Goldberg (@cgoldberg) — Selenium is ending support for Python 3.9 in the Python WebDriver language bindings...</p>
+<a class="text-primary font-bold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all" href="#">Read More <span class="material-symbols-outlined text-sm">chevron_right</span></a>
+</article>
+<!-- Post 2 -->
+<article class="bg-surface-container-low p-6 rounded-lg border border-transparent hover:border-primary-container transition-all group">
+<div class="flex flex-col md:flex-row md:justify-between mb-4">
+<h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">A Curious Case of Selenium Manager Usage</h3>
+<span class="text-sm text-on-surface-variant font-label-md">Sunday, September 14, 2025</span>
+</div>
+<p class="text-on-surface-variant mb-4">By Boni Garcia (@boni_gg) — Telemetry from Selenium Manager revealed an unusual pattern: over 28 million users are locked to Chrome version 127.0.6533.99...</p>
+<a class="text-primary font-bold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all" href="#">Read More <span class="material-symbols-outlined text-sm">chevron_right</span></a>
+</article>
+<!-- Post 3 -->
+<article class="bg-surface-container-low p-6 rounded-lg border border-transparent hover:border-primary-container transition-all group">
+<div class="flex flex-col md:flex-row md:justify-between mb-4">
+<h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">Selenium 4.35 Released!</h3>
+<span class="text-sm text-on-surface-variant font-label-md">Tuesday, August 12, 2025</span>
+</div>
+<p class="text-on-surface-variant mb-4">By Diego Molina (@diemol) — Today we're happy to announce that Selenium 4.35 has been released! This version includes several critical fixes...</p>
+<a class="text-primary font-bold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all" href="#">Read More <span class="material-symbols-outlined text-sm">chevron_right</span></a>
+</article>
+</div>
+<div class="text-center mt-12">
+<a class="text-primary font-bold hover:underline" href="#">Read all Blog Posts here.</a>
+</div>
+</div>
+</section>
+<!-- Sponsors Section -->
+<section class="bg-surface-container px-margin-x">
+    <div class="max-w-container-max mx-auto px-margin-x py-12">
+        <h3 class="text-center font-label-md text-primary uppercase tracking-widest mb-gutter">DEVELOPMENT PARTNERS &amp; SPONSORS</h3>
+        <div class="flex flex-wrap justify-center items-center gap-12 opacity-70 hover:opacity-100 transition-opacity">
+            <img src="assets/misc/saucelabs.png" alt="SauceLabs" class="h-10 w-auto object-contain brightness-0">
+            <img src="assets/misc/bright-data.png" alt="Bright Data" class="h-10 w-auto object-contain brightness-0">
+            <img src="assets/misc/applitools.png" alt="Applitools" class="h-10 w-auto object-contain brightness-0">
+            <img src="assets/misc/thordata.png" alt="ThorData" class="h-10 w-auto object-contain brightness-0">
+        </div>
+            
+        <div class="text-center mt-gutter">
+            <a class="inline-block px-6 py-2 border-2 border-primary text-primary font-bold rounded-full hover:bg-primary hover:text-white transition-all font-body-md" href="#">
+                View the full list of sponsors here.
+            </a>
+        </div>
+    </div>
+</section>
+<!-- CTA Section -->
+<section class="py-16 px-margin-x relative overflow-hidden" style="background: linear-gradient(135deg, #004a99 0%, #0066cc 100%);">
+<div class="absolute inset-0 bg-primary opacity-20 pointer-events-none"></div>
+<div class="max-w-container-max mx-auto text-center relative z-10">
+<h2 class="font-display-lg text-headline-lg text-white mb-6">Donate to Selenium through Open Collective</h2>
+<button class="bg-white text-[#004a99] px-10 py-4 rounded-full font-bold hover:scale-105 transition-transform shadow-lg">Support Open Source</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-inverse-surface dark:bg-surface-container-lowest text-surface-variant transition-all py-section-gap px-margin-x">
+<div class="max-w-container-max mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-gutter mb-16">
+<!-- Branding -->
+<div class="col-span-2 md:col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<img alt="Logo" class="h-8 object-contain object-po" src="assets/misc/selenium-seeklogo.png"/>
+</div>
+<p class="text-sm opacity-70 mb-8 max-w-xs">© 2025 All Rights Reserved. Software Freedom Conservancy.</p>
+<div class="flex gap-4">
+<a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">forum</span></a>
+<a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">rss_feed</span></a>
+</div>
+</div>
+<!-- Column 1 -->
+<div>
+<h4 class="text-white font-bold mb-6 text-label-md">Explore</h4>
+<ul class="space-y-4 text-sm font-body-md">
+<li class=""><a class="hover:text-primary transition-colors" href="#">Downloads</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Documentation</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Projects</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Selenium Blog</a></li>
+</ul>
+</div>
+<!-- Column 2 -->
+<div>
+<h4 class="text-white font-bold mb-6 text-label-md">About</h4>
+<ul class="space-y-4 text-sm font-body-md">
+<li class=""><a class="hover:text-primary transition-colors" href="#">About Selenium</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Structure and Governance</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Events</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Ecosystem</a></li>
+</ul>
+</div>
+<!-- Column 3 -->
+<div>
+<h4 class="text-white font-bold mb-6 text-label-md">Community</h4>
+<ul class="space-y-4 text-sm font-body-md">
+<li class=""><a class="hover:text-primary transition-colors" href="#">Getting Involved</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Support</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Sponsor Us</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Donate</a></li>
+</ul>
+</div>
+<!-- Column 4 -->
+<div>
+<h4 class="text-white font-bold mb-6 text-label-md">History</h4>
+<ul class="space-y-4 text-sm font-body-md">
+<li class=""><a class="hover:text-primary transition-colors" href="#">History</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Releases</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Archives</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-white/10 text-center opacity-50 text-xs">
+                Selenium is a registered trademark of the Software Freedom Conservancy.
+            </div>
+</div>
+</footer>
+<script>
+        // Simple scroll effect for header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+
+        // Hover effect for cards
+        const cards = document.querySelectorAll('.group');
+        cards.forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'scale(0.98)';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+
+
+
+
+</body></html>

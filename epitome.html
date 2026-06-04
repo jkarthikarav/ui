@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="light scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EPITOME | Training for Transformation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100..900&amp;family=Inter:wght@100..900&amp;family=Manrope:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#39bfff",
+                        "primary-container": "#1c2e52",
+                        "secondary": "#00658d",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container-high": "#e6e8ea",
+                        "on-tertiary-container": "#8a97b6",
+                        "on-secondary-container": "#004b69",
+                        "on-surface-variant": "#44474e",
+                        "surface-tint": "#4d5e85",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "background": "#f7f9fb",
+                        "tertiary-fixed-dim": "#b9c6e7",
+                        "secondary-fixed": "#c6e7ff",
+                        "surface-dim": "#d8dadc",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#222f49",
+                        "surface": "#f7f9fb",
+                        "surface-container": "#eceef0",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "outline-variant": "#c5c6cf",
+                        "secondary-fixed-dim": "#81cfff",
+                        "on-secondary-fixed-variant": "#004c6b",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#0d1b34",
+                        "tertiary": "#0c1a33",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#b5c6f3",
+                        "surface-variant": "#e0e3e5",
+                        "on-primary-container": "#8596c0",
+                        "on-primary-fixed": "#051a3e",
+                        "primary-fixed-dim": "#b5c6f3",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#75777f",
+                        "inverse-surface": "#2d3133",
+                        "on-secondary-fixed": "#001e2d",
+                        "on-tertiary-fixed-variant": "#3a4762",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#f7f9fb",
+                        "primary-fixed": "#d8e2ff",
+                        "on-primary-fixed-variant": "#35466c",
+                        "on-surface": "#191c1e",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#04193c",
+                        "surface-container-highest": "#e0e3e5",
+                        "tertiary-fixed": "#d8e2ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "gutter": "32px",
+                        "section-padding": "120px",
+                        "stack-lg": "48px",
+                        "stack-md": "24px",
+                        "stack-sm": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Manrope"],
+                        "body-lg": ["Inter"],
+                        "display-hero": ["Manrope"],
+                        "label-caps": ["IBM Plex Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-hero": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "label-caps": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(4, 25, 60, 0.7) 0%, rgba(4, 25, 60, 0.5) 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .tech-line {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #39bfff, transparent);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 z-50 w-full bg-surface dark:bg-background shadow-sm h-20 flex items-center">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-gutter max-w-7xl mx-auto h-20">
+<img alt="EPITOME Transformation Logo" class="w-48 h-36 object-contain" src="assets/misc/Full Logo.png"/>
+<div class="hidden md:flex items-center gap-8 font-body-md text-body-md">
+<a class="text-secondary dark:text-secondary-fixed font-bold border-b-2 border-secondary h-20 flex items-center" href="#">Home</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-300 ease-in-out" href="#about">About</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-300 ease-in-out" href="#courses">Courses</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors" href="#">Case Studies</a>
+</div>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="EPITOME Transformation Hero" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7MLNuKJcsRQHpKLk3IofBmsdXA3WEgZy52g-4DF4bBhu-p8ejNrGlkUE-Q2Ip6LGmtw3S45x3Aaia0tq0MtSfLQqVDPO_FQWyv9fJAkUaGOt4Tz4PlfeMXVWZCTsOizVt57QUKUikeETjNANibQLsP3MPtK7csi7Imf4p-BfckOkrFxEslxzw7DeOIRuPF-Pneg8dZ4HzBWJM8EJtVftKJeW1gRhZWrLOwkGkZeUZi5wOmImZU8MTPm1BXhHknyfTPE9WSB1q0nb8"/>
+<div class="absolute inset-0 hero-overlay"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-margin-mobile md:px-gutter text-center">
+
+<h1 class="font-headline-lg-mobile md:font-display-hero md:text-display-hero text-white mb-stack-lg uppercase">
+                    TRAINING IS THE ESSENCE OF<br/>
+<span class="text-secondary-container">TRANSFORMATION</span>
+</h1>
+<div class="tech-line w-50%"></div>
+</div>
+</section>
+<!-- Introduction Section -->
+<section class="py-section-padding bg-surface" id="about">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-gutter text-center">
+<div class="max-w-4xl mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-stack-md leading-tight">
+                        We are a group of Temenos consultants, business &amp; technical experts of 
+                        <span class="text-secondary border-b-4 border-secondary-container/40">Temenos Transact and Infinity applications</span>.
+                    </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant opacity-80">
+                        We offer consultation and training in Temenos Transact and Infinity applications, providing global-scale expertise to financial institutions.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Course Section -->
+<section class="py-section-padding bg-surface-container-low" id="courses">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-gutter">
+<div class="flex flex-col md:flex-row gap-gutter items-start mb-section-padding/2">
+<div class="md:w-1/2">
+<span class="font-label-caps text-label-caps text-secondary uppercase mb-stack-sm block">Professional Development</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-stack-md">Temenos T24 Transact Technical Consultant course</h2>
+<div class="w-24 h-1 bg-secondary-container mb-stack-md"></div>
+</div>
+<div class="md:w-1/2 space-y-stack-md text-on-surface-variant font-body-md text-body-md mb-12">
+<p>Temenos is the world’s leader in banking software, helping financial institutions transform their businesses. According to IBS Intelligence, Temenos T24 has been the #1 bestselling core banking system for 15 years.</p>
+<p>Temenos has service partners with several IT giants such as Capgemini, Accenture, LTI etc., Over 3000 banks in 150 countries use Temenos software. Training young, bright and aspiring candidates in Temenos Transact technologies help them find their dream job in Temenos or in one of its many partner companies.</p>
+<p class="font-bold text-primary">We provide the best Temenos T24 online training by experts.</p>
+</div>
+</div>
+<!-- Course Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+<!-- Card 1 -->
+<div class="md:col-span-4 glass-card p-stack-md rounded-xl flex flex-col justify-center hover:shadow-xl transition-shadow border-l-4 border-secondary">
+<div class="bg-secondary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-stack-md mx-auto">
+<span class="material-symbols-outlined text-secondary" data-icon="account_tree">account_tree</span>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Structure &amp; Fundamentals</h3>
+<p class="text-on-surface-variant">Temenos T24 Introduction, T24 structure and important files.</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="md:col-span-4 glass-card p-stack-md rounded-xl flex flex-col justify-center hover:shadow-xl transition-shadow border-l-4 border-secondary-container">
+<div class="bg-secondary-container/10 w-12 h-12 rounded-lg flex items-center justify-center mb-stack-md mx-auto">
+<span class="material-symbols-outlined text-secondary-container" data-icon="layers">layers</span>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Functional Banking</h3>
+<p class="text-on-surface-variant">Basics of Banking, Basics - T24 functional aspects.</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="md:col-span-4 glass-card p-stack-md rounded-xl flex flex-col justify-center hover:shadow-xl transition-shadow border-l-4 border-primary">
+<div class="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-stack-md mx-auto">
+<span class="material-symbols-outlined text-primary" data-icon="settings_input_component">settings_input_component</span>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Config &amp; Environments</h3>
+<p class="text-on-surface-variant">Introduction to jbase JBOSS configuration.</p>
+</div>
+</div>
+
+<!-- Card 4 - Large -->
+<div class="md:col-span-8 glass-card p-stack-md rounded-xl flex flex-col justify-center hover:shadow-xl transition-shadow border-l-4 border-secondary">
+<div class="bg-secondary-container/10 w-12 h-12 rounded-lg flex items-center justify-center mb-stack-md mx-auto">
+<span class="material-symbols-outlined text-secondary text-4xl" data-icon="developer_board">developer_board</span>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Development &amp; Packaging</h3>
+<p class="text-on-surface-variant">DSF packager, Design Studio, UXP browser (OFS, IRIS, TAFJ). High-level tools for enterprise-grade deployment.</p>
+</div>
+</div>
+
+<!-- Card 5 -->
+<div class="md:col-span-4 glass-card p-stack-md rounded-xl flex flex-col justify-center hover:shadow-xl transition-shadow border-l-4 border-secondary-container">
+<div class="bg-secondary-container/10 w-12 h-12 rounded-lg flex items-center justify-center mb-stack-md mx-auto">
+<span class="material-symbols-outlined text-secondary-container" data-icon="inventory_2">inventory_2</span>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Delivery</h3>
+<p class="text-on-surface-variant">Customisation, Close of business, Delivery.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 bg-primary relative overflow-hidden">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-gutter relative z-10 text-center">
+<h2 class="font-headline-lg text-headline-lg text-white mb-stack-md">Ready to start your transformation?</h2>
+<p class="text-secondary-fixed opacity-90 mb-stack-lg max-w-2xl mx-auto">Join the next cohort of expert Temenos consultants and shape the future of digital banking.</p>
+<div class="flex flex-col md:flex-row gap-4 justify-center">
+<button class="bg-secondary-container text-on-secondary-container px-10 py-4 font-bold rounded-lg hover:brightness-110 transition-all uppercase tracking-wider">Enroll Now</button>
+<button class="border-2 border-secondary-container text-secondary-container px-10 py-4 font-bold rounded-lg hover:bg-secondary-container/10 transition-all uppercase tracking-wider">Contact Sales</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-tertiary-container text-on-primary dark:text-on-tertiary-container">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-lg w-full px-margin-mobile md:px-gutter py-stack-lg max-w-7xl mx-auto">
+<div>
+<img alt="EPITOME Transformation Logo" class="h-24 object-contain brightness-0 invert contrast-200 mb-2" src="assets/misc/Full Logo.png"/>
+<p class="font-body-md text-body-md opacity-80 max-w-sm">Epitome Techinfra provides world-class consulting and training services for the banking and financial technology sector.</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-2">
+<span class="font-bold text-secondary-fixed mb-2 uppercase text-xs tracking-widest">Company</span>
+<a class="opacity-80 hover:opacity-100 transition-opacity" href="#">Privacy Policy</a>
+<a class="opacity-80 hover:opacity-100 transition-opacity" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-bold text-secondary-fixed mb-2 uppercase text-xs tracking-widest">Connect</span>
+<a class="opacity-80 hover:opacity-100 transition-opacity" href="#">Contact Us</a>
+<a class="opacity-80 hover:opacity-100 transition-opacity" href="#">Careers</a>
+</div>
+</div>
+<div class="space-y-4">
+<div>
+<span class="font-bold text-secondary-fixed block mb-1">Regd. Office:</span>
+<address class="not-italic opacity-80 text-sm">
+                        Chennai, India.
+                    </address>
+</div>
+<div>
+<span class="font-bold text-secondary-fixed block mb-1">Contact us:</span>
+<p class="opacity-80 text-sm">Tel: +91-XXXXX XXXXX</p>
+<p class="opacity-80 text-sm">Email: contact-us@epitome.com</p>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-gutter py-6 border-t border-white/10 text-center md:text-left opacity-60 text-xs">
+            © 2022 Epitome Techinfra. All rights reserved.
+        </div>
+</footer>
+<script>
+        // Smooth reveal on scroll interaction
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.glass-card').forEach(card => {
+                card.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+                observer.observe(card);
+            });
+        });
+    </script>
+</body></html>
