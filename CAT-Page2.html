@@ -1,0 +1,373 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>SiteTrack - Westside Urban Plaza</title>
+<!-- Google Fonts: Inter & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#ffb688",
+                        "outline": "#8a7264",
+                        "tertiary-fixed-dim": "#bcc7dd",
+                        "inverse-surface": "#2d3133",
+                        "on-surface-variant": "#574337",
+                        "on-primary-fixed-variant": "#733500",
+                        "surface": "#f7fafc",
+                        "secondary": "#5f5e5f",
+                        "surface-tint": "#974800",
+                        "secondary-fixed-dim": "#c8c6c7",
+                        "on-secondary-container": "#636263",
+                        "tertiary-fixed": "#d8e3fa",
+                        "primary-fixed-dim": "#ffb688",
+                        "tertiary-container": "#95a0b5",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f1f4f6",
+                        "primary": "#974800",
+                        "background": "#f7fafc",
+                        "on-tertiary-container": "#2c3749",
+                        "on-primary-container": "#5a2800",
+                        "surface-container": "#ebeef0",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#181c1e",
+                        "on-primary": "#ffffff",
+                        "on-background": "#181c1e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#1b1b1c",
+                        "primary-container": "#f48024",
+                        "outline-variant": "#ddc1b1",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-secondary-fixed-variant": "#474647",
+                        "on-tertiary-fixed": "#111c2c",
+                        "on-tertiary-fixed-variant": "#3c475a",
+                        "surface-dim": "#d7dadc",
+                        "tertiary": "#545f72",
+                        "inverse-on-surface": "#eef1f3",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-high": "#e5e9eb",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#ffdbc7",
+                        "on-primary-fixed": "#311300",
+                        "secondary-fixed": "#e5e2e3",
+                        "secondary-container": "#e2dfe0",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f7fafc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-md": "12px",
+                        "stack-lg": "24px",
+                        "cell-padding-h": "12px",
+                        "gutter": "16px",
+                        "stack-sm": "4px",
+                        "cell-padding-v": "8px",
+                        "unit": "4px",
+                        "container-margin": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "data-mono": ["13px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased overflow-hidden flex">
+<!-- Shared Component: SideNavBar -->
+<nav class="bg-[#1A1A1B] fixed left-0 top-0 h-screen w-[260px] flex flex-col z-50">
+<!-- Header -->
+<div class="px-container-margin py-stack-lg border-b border-surface-variant/20">
+<h1 class="font-display-lg text-display-lg text-on-primary-container tracking-tight">SiteTrack</h1>
+<p class="font-body-sm text-body-sm text-secondary-fixed-dim mt-unit opacity-80">Construction SaaS</p>
+</div>
+<!-- Navigation Links -->
+<div class="flex-1 py-stack-md flex flex-col gap-unit">
+<!-- Active Tab: Project View -->
+<a class="flex items-center gap-stack-md border-l-4 border-primary-container bg-surface-variant/10 px-gutter py-cell-padding-v text-secondary-fixed-dim hover:bg-surface-variant/5 transition-colors duration-200" href="#" onclick="window.open('CAT-Page1.html', '_blank');">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span class="font-body-md text-body-md">Project View</span>
+</a>
+<!-- Inactive Tabs -->
+<a class="flex items-center gap-stack-md border-l-4 border-transparent px-gutter py-cell-padding-v text-secondary-fixed-dim hover:bg-surface-variant/5 transition-colors" href="#" onclick="window.open('CAT-Page3.html', '_blank');">
+<span class="material-symbols-outlined text-[20px]" data-icon="assignment">assignment</span>
+<span class="font-body-md text-body-md">Task View</span>
+</a>
+<a class="flex items-center gap-stack-md border-l-4 border-transparent px-gutter py-cell-padding-v text-secondary-fixed-dim hover:bg-surface-variant/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="calendar_today">calendar_today</span>
+<span class="font-body-md text-body-md">Schedule View</span>
+</a>
+<a class="flex items-center gap-stack-md border-l-4 border-transparent px-gutter py-cell-padding-v text-secondary-fixed-dim hover:bg-surface-variant/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="groups">groups</span>
+<span class="font-body-md text-body-md">Team</span>
+</a>
+<a class="flex items-center gap-stack-md border-l-4 border-transparent px-gutter py-cell-padding-v text-secondary-fixed-dim hover:bg-surface-variant/5 transition-colors mt-auto mb-stack-md" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 ml-[260px] flex flex-col h-screen overflow-hidden">
+<!-- Shared Component: TopNavBar -->
+<header class="bg-surface fixed top-0 right-0 w-[calc(100%-260px)] h-16 border-b border-outline-variant flex justify-between items-center px-container-margin z-40">
+<!-- Breadcrumb / Active Context -->
+<div class="flex items-center gap-stack-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">apartment</span>
+<span class="text-primary font-bold border-b-2 border-primary pb-1 font-headline-sm text-headline-sm scale-95 duration-150 origin-left">Westside Urban Plaza</span>
+</div>
+<!-- Global Actions -->
+<div class="flex items-center gap-stack-md">
+<button class="p-unit text-on-surface-variant hover:text-primary transition-opacity">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="p-unit text-on-surface-variant hover:text-primary transition-opacity">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-variant border border-outline-variant overflow-hidden ml-unit">
+<!-- Placeholder Profile -->
+<div class="w-full h-full bg-secondary-fixed-dim flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[16px]">person</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 pt-20 px-container-margin pb-container-margin overflow-y-auto bg-surface">
+<div class="max-w-[1400px] mx-auto flex flex-col gap-stack-lg">
+<!-- Action Bar -->
+<div class="flex justify-between items-end mb-stack-sm">
+<div>
+<h2 class="font-label-caps text-label-caps text-secondary uppercase tracking-widest mb-unit">Active Project</h2>
+<h3 class="font-display-lg text-display-lg text-on-surface">Westside Urban Plaza</h3>
+</div>
+<button class="bg-primary-container text-white px-cell-padding-h py-cell-padding-v rounded hover:bg-primary transition-colors flex items-center gap-unit font-body-md text-body-md font-medium">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                        Download Progress Report
+                    </button>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-stack-lg">
+<!-- Hero / High-level Overview (Col span 8) -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest border border-surface-variant rounded p-container-margin flex flex-col justify-between">
+<div class="flex justify-between items-start mb-stack-lg">
+<div>
+<div class="inline-flex items-center gap-unit bg-[#E6F4EA]/50 text-[#137333] px-2 py-1 rounded border border-[#137333]/20 mb-stack-md font-label-caps text-label-caps">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                                    ON SCHEDULE
+                                </div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-unit">Target Completion</p>
+<p class="font-headline-md text-headline-md font-data-mono">Q4 2024 (Nov 30)</p>
+</div>
+<!-- Large Project Ring -->
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+<circle cx="50" cy="50" fill="transparent" r="45" stroke="#e0e3e5" stroke-width="4"></circle>
+<circle cx="50" cy="50" fill="transparent" r="45" stroke="#f48024" stroke-dasharray="282.7" stroke-dashoffset="90.5" stroke-width="4"></circle> <!-- 60% approx -->
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="font-headline-md text-headline-md text-on-surface">68%</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-stack-md pt-stack-md border-t border-surface-variant/50">
+<div>
+<p class="font-label-caps text-label-caps text-secondary mb-unit">Budget Consumed</p>
+<p class="font-data-mono text-data-mono text-on-surface text-lg">$4.2M / $7.5M</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-secondary mb-unit">Man-Hours Logged</p>
+<p class="font-data-mono text-data-mono text-on-surface text-lg">12,450</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-secondary mb-unit">Current Phase</p>
+<p class="font-body-md text-body-md text-on-surface font-medium">Structural Framing</p>
+</div>
+</div>
+</div>
+<!-- Site Readiness (Col span 4) -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-lowest border border-surface-variant rounded p-container-margin flex flex-col items-center justify-center text-center">
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-stack-md w-full text-left">Site Readiness</h4>
+<div class="relative w-32 h-32 flex items-center justify-center mb-stack-md">
+<svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+<circle cx="50" cy="50" fill="transparent" r="45" stroke="#e0e3e5" stroke-width="4"></circle>
+<circle cx="50" cy="50" fill="transparent" r="45" stroke="#f48024" stroke-dasharray="282.7" stroke-dashoffset="50.8" stroke-width="4"></circle> <!-- 82% approx -->
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-display-lg text-display-lg text-on-surface">82<span class="text-lg">%</span></span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Clearance approved for Heavy Machinery deployment on Sectors A &amp; B.</p>
+</div>
+<!-- Upcoming Tasks (Col span 6) -->
+<div class="col-span-12 lg:col-span-6 bg-surface-container-lowest border border-surface-variant rounded">
+<div class="p-cell-padding-h border-b border-surface-variant bg-surface-bright flex justify-between items-center">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Upcoming Critical Tasks</h4>
+<span class="material-symbols-outlined text-secondary text-[18px]">more_horiz</span>
+</div>
+<div class="flex flex-col">
+<!-- Task 1 -->
+<div class="flex items-start gap-stack-md p-cell-padding-h border-b border-surface-variant/50 hover:bg-surface-variant/10 transition-colors">
+<div class="w-5 h-5 mt-0.5 rounded border border-outline-variant flex-shrink-0"></div>
+<div class="flex-1">
+<p class="font-body-md text-body-md font-medium text-on-surface">Pour Foundation Core - Level 2</p>
+<div class="flex items-center gap-stack-sm mt-unit">
+<span class="font-label-caps text-label-caps text-primary-container bg-primary-container/10 px-1.5 py-0.5 rounded">HIGH PRIORITY</span>
+<span class="font-data-mono text-[11px] text-secondary">Due: Tomorrow, 06:00 AM</span>
+</div>
+</div>
+</div>
+<!-- Task 2 -->
+<div class="flex items-start gap-stack-md p-cell-padding-h border-b border-surface-variant/50 hover:bg-surface-variant/10 transition-colors">
+<div class="w-5 h-5 mt-0.5 rounded border border-outline-variant flex-shrink-0"></div>
+<div class="flex-1">
+<p class="font-body-md text-body-md font-medium text-on-surface">HVAC Ducting Inspection</p>
+<div class="flex items-center gap-stack-sm mt-unit">
+<span class="font-label-caps text-label-caps text-secondary bg-surface-variant/50 px-1.5 py-0.5 rounded">STANDARD</span>
+<span class="font-data-mono text-[11px] text-secondary">Due: Oct 28</span>
+</div>
+</div>
+</div>
+<!-- Task 3 -->
+<div class="flex items-start gap-stack-md p-cell-padding-h hover:bg-surface-variant/10 transition-colors">
+<div class="w-5 h-5 mt-0.5 rounded border border-outline-variant flex-shrink-0"></div>
+<div class="flex-1">
+<p class="font-body-md text-body-md font-medium text-on-surface">Safety Audit - Cranes A &amp; B</p>
+<div class="flex items-center gap-stack-sm mt-unit">
+<span class="font-label-caps text-label-caps text-secondary bg-surface-variant/50 px-1.5 py-0.5 rounded">COMPLIANCE</span>
+<span class="font-data-mono text-[11px] text-secondary">Due: Oct 30</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Resource Overview (Col span 6) -->
+<div class="col-span-12 lg:col-span-6 bg-surface-container-lowest border border-surface-variant rounded flex flex-col">
+<div class="p-cell-padding-h border-b border-surface-variant bg-surface-bright">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Resource Allocation</h4>
+</div>
+<div class="p-container-margin grid grid-cols-2 gap-stack-lg flex-1">
+<div>
+<p class="font-label-caps text-label-caps text-secondary mb-unit">Active Personnel</p>
+<div class="flex items-baseline gap-unit mb-stack-sm">
+<span class="font-headline-md text-headline-md text-on-surface">142</span>
+<span class="font-body-sm text-body-sm text-[#137333] flex items-center"><span class="material-symbols-outlined text-[14px]">arrow_upward</span> 12</span>
+</div>
+<div class="w-full bg-surface-variant h-1 rounded overflow-hidden">
+<div class="bg-tertiary h-full" style="width: 75%"></div>
+</div>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-secondary mb-unit">Heavy Equipment</p>
+<div class="flex items-baseline gap-unit mb-stack-sm">
+<span class="font-headline-md text-headline-md text-on-surface">18</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ 20 Deployed</span>
+</div>
+<div class="w-full bg-surface-variant h-1 rounded overflow-hidden">
+<div class="bg-primary-container h-full" style="width: 90%"></div>
+</div>
+</div>
+<div class="col-span-2 pt-stack-sm">
+<p class="font-body-sm text-body-sm text-on-surface-variant">Subcontractor 'Apex Steel' is operating at maximum capacity. Monitor structural milestones closely over next 48hrs.</p>
+</div>
+</div>
+</div>
+<!-- Photo Gallery 2x2 (Col span 12) -->
+<div class="col-span-12 bg-surface-container-lowest border border-surface-variant rounded">
+<div class="p-cell-padding-h border-b border-surface-variant bg-surface-bright flex justify-between items-center">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Recent Site Captures</h4>
+<button class="font-body-sm text-body-sm font-medium text-primary hover:underline">View All</button>
+</div>
+<div class="p-stack-md grid grid-cols-2 md:grid-cols-4 gap-stack-sm">
+<!-- Photo 1 -->
+<div class="group relative aspect-video bg-surface-variant rounded overflow-hidden border border-outline-variant/30">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="A wide angle shot of a large construction site during golden hour. The framing of a high-rise building is visible against a clear sky. High contrast, utilitarian style highlighting structural steel and concrete work. Warm industrial lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDxG3aum5UQDQo6Va3M3Cs2w8FRAuNlYWTqbAuHlu_ve4IroWLFHIWviapsfDsrd6Lr84yTH4dEpD_qRnsH4tIfHCU3Lj2dtqSjcHO9HoHiC02bTnsNk8b25rkzrozTxur6HTnGQFVkYEeNJbuVsWPT5Q6GBBtMQ25gSMKavCTphqWFEr-CtVsUxltHANV_qJj--DPHGxuo_Baw9eldzLdAcr_RtXzmX2HJwn8DxYhYkafg9KP4UPTRzVFULvv0fRjEuzfvyg0yR-95');">
+</div>
+<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-unit pt-stack-md">
+<p class="font-data-mono text-[10px] text-white/90">2023-10-26 08:14</p>
+</div>
+</div>
+<!-- Photo 2 -->
+<div class="group relative aspect-video bg-surface-variant rounded overflow-hidden border border-outline-variant/30">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Close up of a construction worker in a high visibility orange vest and hard hat reviewing blueprints on a digital tablet. Behind them, blurred heavy machinery operates on a dirt site. Modern, professional construction environment. Daylight." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBR8YKXVoaLRAFgNJ6OV7mMHQFIC1ZGQkrRdTuBDe-2kd1wVTv3pGLNC3a_dGxK3AJH93kGJZ8vt7xNm39VeRd8Iv_1jAJ8pOHg4MvlYpaGzQHMl1r6ZkUqjtJLOxZUbJRTQWELorDYWsVmgtEBXmwN2JutC0vB2Mqo-JK0Kq656xJInExN0Khn8GgMgpqywfLFN2Nfp8CaBhnE2YvzSNSw8vEXkmmYv9Xs5PukvHaksWhjOdQyx-quMDQ3Alz_HLRxxRd_8aN-2mNp');">
+</div>
+<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-unit pt-stack-md">
+<p class="font-data-mono text-[10px] text-white/90">2023-10-26 11:30</p>
+</div>
+</div>
+<!-- Photo 3 -->
+<div class="group relative aspect-video bg-surface-variant rounded overflow-hidden border border-outline-variant/30">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Detailed view of intricate rebar laying in a concrete foundation form. The steel bars create a precise geometric grid pattern. High contrast, technical focus, representing solid groundwork and precision engineering. Cool daylight." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAq5wEe74k4s-ZgP1EvVJySc6eAsyRmkqVWJgIpeyUSuaVXY0aLVkV5PCDGFR7SiivQiopUThRfwI1wkM6KPp-LnDXR84SEOuHSE4LY7oW9OojX9sYywvg3ySmMCF_O-NpcDeSEEM4R8VO4qmFX5ERBwDVh2w1NsOjGmyvpGStXAYZiuPY_VzahvzCCxmdpHqcRaRYsslpM0e0V11fWr8-X4KZPG5QLG3qprOSy2Umw65fbxwZBpf_3cA32I2tEKC9xSrtbMz95Ma6b');">
+</div>
+<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-unit pt-stack-md">
+<p class="font-data-mono text-[10px] text-white/90">2023-10-25 15:45</p>
+</div>
+</div>
+<!-- Photo 4 -->
+<div class="group relative aspect-video bg-surface-variant rounded overflow-hidden border border-outline-variant/30">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="A massive yellow tower crane silhouetted against a bright blue sky, actively lifting steel girders to the upper levels of a skyscraper under construction. Authoritative, industrial aesthetic. Clear daytime lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCPtFP2OOPaNolS9hbYn1L_dtw5TyonKbcP5QUw5HPQ1Fjdyhs8b04KVWhoX1AR3lN64MwOBPjxFAoemDJ5ivyKKNHqVd6MJvrdYBXQOZVtEdMBpqb-Rvyq07D0mpnsRwtRzssLl3URiR-2oQDc1uHl9srwRXQV9mxFBNQWzLdygtcCAUcYwg1r7RuWAflX4gPk5_oBmzao6L4zXSsx6EuChf8H2PWVAWOtRlKQOG6SzvPnW4wLH-27O-P91Ae8EjYmje3b3DOXXP1N');">
+</div>
+<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-unit pt-stack-md">
+<p class="font-data-mono text-[10px] text-white/90">2023-10-25 09:20</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+
+</body></html>

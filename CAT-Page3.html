@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SiteTrack - Task View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#ffb688",
+                        "outline": "#8a7264",
+                        "tertiary-fixed-dim": "#bcc7dd",
+                        "inverse-surface": "#2d3133",
+                        "on-surface-variant": "#574337",
+                        "on-primary-fixed-variant": "#733500",
+                        "surface": "#f7fafc",
+                        "secondary": "#5f5e5f",
+                        "surface-tint": "#974800",
+                        "secondary-fixed-dim": "#c8c6c7",
+                        "on-secondary-container": "#636263",
+                        "tertiary-fixed": "#d8e3fa",
+                        "primary-fixed-dim": "#ffb688",
+                        "tertiary-container": "#95a0b5",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f1f4f6",
+                        "primary": "#974800",
+                        "background": "#f7fafc",
+                        "on-tertiary-container": "#2c3749",
+                        "on-primary-container": "#5a2800",
+                        "surface-container": "#ebeef0",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#181c1e",
+                        "on-primary": "#ffffff",
+                        "on-background": "#181c1e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#1b1b1c",
+                        "primary-container": "#f48024",
+                        "outline-variant": "#ddc1b1",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-secondary-fixed-variant": "#474647",
+                        "on-tertiary-fixed": "#111c2c",
+                        "on-tertiary-fixed-variant": "#3c475a",
+                        "surface-dim": "#d7dadc",
+                        "tertiary": "#545f72",
+                        "inverse-on-surface": "#eef1f3",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-high": "#e5e9eb",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#ffdbc7",
+                        "on-primary-fixed": "#311300",
+                        "secondary-fixed": "#e5e2e3",
+                        "secondary-container": "#e2dfe0",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f7fafc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-md": "12px",
+                        "stack-lg": "24px",
+                        "cell-padding-h": "12px",
+                        "gutter": "16px",
+                        "stack-sm": "4px",
+                        "cell-padding-v": "8px",
+                        "unit": "4px",
+                        "container-margin": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "data-mono": ["13px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .progress-ring {
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.35s;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #e0e3e5;
+            border-radius: 4px;
+        }
+        .custom-scrollbar:hover::-webkit-scrollbar-thumb {
+            background-color: #c8c6c7;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md h-screen overflow-hidden flex relative">
+<!-- SideNavBar -->
+<nav class="bg-[#1A1A1B] fixed left-0 top-0 h-screen w-[260px] flex flex-col z-50">
+<div class="px-gutter py-stack-lg border-b border-[#2d3133]">
+<h1 class="font-display-lg text-display-lg text-on-primary-container">SiteTrack</h1>
+<p class="font-body-sm text-body-sm text-secondary-fixed-dim mt-unit">Construction SaaS</p>
+</div>
+<div class="flex-1 overflow-y-auto py-stack-md">
+<a class="flex items-center gap-stack-md border-l-4 border-transparent px-gutter py-cell-padding-v text-secondary-fixed-dim hover:bg-surface-variant/5 transition-colors" href="#" onclick="window.open('CAT-Page1.html', '_blank');">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Project View</span>
+</a>
+<a class="flex items-center gap-stack-md border-l-4 border-primary-container bg-surface-variant/10 px-gutter py-cell-padding-v text-secondary-fixed-dim hover:bg-surface-variant/5 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="assignment" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span>Task View</span>
+</a>
+<a class="flex items-center gap-stack-md border-l-4 border-transparent px-gutter py-cell-padding-v text-secondary-fixed-dim hover:bg-surface-variant/5 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span>Schedule View</span>
+</a>
+<a class="flex items-center gap-stack-md border-l-4 border-transparent px-gutter py-cell-padding-v text-secondary-fixed-dim hover:bg-surface-variant/5 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span>Team</span>
+</a>
+<a class="flex items-center gap-stack-md border-l-4 border-transparent px-gutter py-cell-padding-v text-secondary-fixed-dim hover:bg-surface-variant/5 transition-colors mt-stack-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</div>
+</nav>
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface-dim fixed top-0 right-0 w-[calc(100%-260px)] h-16 border-b border-outline-variant flex justify-between items-center px-container-margin z-40">
+<div class="flex items-center gap-stack-lg">
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">SiteTrack</h2>
+<nav class="hidden md:flex gap-stack-lg">
+<a class="font-headline-sm text-headline-sm text-primary font-bold border-b-2 border-primary pb-1 hover:text-primary transition-opacity" href="#">Westside Urban Plaza</a>
+</nav>
+</div>
+<div class="flex items-center gap-stack-md">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-cell-padding-v bg-surface-container-lowest border border-outline-variant rounded focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 font-body-sm text-body-sm text-on-surface w-64 transition-all" placeholder="Search tasks..." type="text"/>
+</div>
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-outline-variant cursor-pointer hover:opacity-80 transition-opacity" data-alt="A small circular profile picture of an industrial project manager. White background. Bright lighting. Modern corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnbVQg2GUcyp20EC5LuNFPan0z1gugdDWkN2Hikumb89B1_0SVkvFC2wgkG5Tz3YwCruuZ-_Zds2UUs7nUSbOt7HF0gtCktZU_v2GpcocqimOlZghUVWU7pZMV-TJv5o4kUgyO3AzpWUHp4leKC3aS70MYLmwivSfjMYXfoAe3lZ6becvS1rrcXwa1mVd0poUqCRoLzJi-d3n2Zgz8ziBqqiyCUtZ4hbkQqIoltZ8IiSMKNq3WiAJdE7vLURqJaCJbC7AAUyODMf9k"/>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="ml-[260px] mt-16 p-container-margin w-[calc(100%-260px)] h-[calc(100vh-64px)] overflow-y-auto bg-surface transition-all duration-300" id="main-content">
+<!-- Toolbar / Filters -->
+<div class="flex justify-between items-center mb-stack-lg">
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">Task View</h2>
+<div class="flex gap-stack-md">
+<button class="flex items-center gap-stack-sm px-cell-padding-h py-cell-padding-v bg-surface-container-lowest border border-outline-variant rounded font-body-sm text-body-sm text-on-surface hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+                    Status
+                </button>
+<button class="flex items-center gap-stack-sm px-cell-padding-h py-cell-padding-v bg-surface-container-lowest border border-outline-variant rounded font-body-sm text-body-sm text-on-surface hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[18px]">person</span>
+                    Assignee
+                </button>
+<button class="flex items-center gap-stack-sm px-cell-padding-h py-cell-padding-v bg-surface-container-lowest border border-outline-variant rounded font-body-sm text-body-sm text-on-surface hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[18px]">flag</span>
+                    Priority
+                </button>
+<button class="flex items-center gap-stack-sm px-gutter py-cell-padding-v bg-primary-container text-on-primary rounded font-body-sm text-body-sm font-semibold hover:bg-opacity-90 transition-opacity ml-stack-md shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                    New Task
+                </button>
+</div>
+</div>
+<!-- Task Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-stack-md">
+<!-- Task Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-stack-md hover:border-primary-container transition-colors group relative cursor-pointer flex flex-col h-full rounded" onclick="togglePanel(true)">
+<div class="flex justify-between items-start mb-stack-sm">
+<span class="inline-flex items-center px-2 py-1 rounded bg-error-container/30 text-on-error-container font-label-caps text-label-caps border border-error-container">HIGH</span>
+<span class="font-data-mono text-data-mono text-on-surface-variant">Oct 12</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface mb-stack-sm line-clamp-2 flex-grow">Foundation Pour - Sector A</h3>
+<div class="flex items-center justify-between mt-auto pt-stack-sm border-t border-outline-variant/50">
+<div class="flex -space-x-2">
+<img alt="Assignee" class="w-6 h-6 rounded-full border border-surface-container-lowest" data-alt="A tiny circular profile picture of a construction worker." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl6TFscitz2uRzkhqUFM9YW6IDhPPI0WBFfqP0V30-VPBHsCtUyBs3LQwGaH5vznlAZDey2BR6ICxj9lNzAmu7I9BOuBFeDMEwd8GPCV0cWX6HZBDymU3w6HUDqPSQ2YNDCcpI2fJwsu-Ni0coEErnwu7JL9VUjqbYx-nxn__-QIANEx9UKSd7PpUEJGL4A4b72J2EUlUg0brlOtWHC5vBPXsKm0bS7BfAUpT-PbvLfX7W1J9fZvoI9sCJJ6m0po7npfeUkRbxpl_u"/>
+<img alt="Assignee" class="w-6 h-6 rounded-full border border-surface-container-lowest" data-alt="A tiny circular profile picture of a structural engineer." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdxQ65O6a8RbJDCQkoeY9NzvavAr537EgszaaOHM7fHL0P6__MYtg21gUt90N56nN-p7e8L_QeGGfjNbqGdWAXYOnS08Jt_PnBYq9JrK5p3-PI1Ml538_jojBImJHFaHWw_KwrTR8Ri_fduBBf2vz-_tFZO3vJG95vBeZ3ZtoVMqbnzIwjgJThMLubLhf-Y98O0hXvrqAN0_oerERatdQcOb4X4gmQhW7lPiZAAD36DOoIYBJgNyv9OlxRA8W7zOhrlJZ_IIRBjCvm"/>
+</div>
+<div class="flex items-center gap-stack-sm">
+<span class="font-data-mono text-data-mono text-primary-container">45%</span>
+<svg class="w-6 h-6 progress-ring" viewbox="0 0 36 36">
+<circle class="text-surface-variant stroke-current" cx="18" cy="18" fill="transparent" r="14" stroke-width="4"></circle>
+<circle class="text-primary-container stroke-current progress-ring__circle" cx="18" cy="18" fill="transparent" r="14" stroke-dasharray="87.96" stroke-dashoffset="48.38" stroke-width="4"></circle>
+</svg>
+</div>
+</div>
+</div>
+<!-- Task Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-stack-md hover:border-primary-container transition-colors group relative cursor-pointer flex flex-col h-full rounded">
+<div class="flex justify-between items-start mb-stack-sm">
+<span class="inline-flex items-center px-2 py-1 rounded bg-tertiary-fixed/50 text-on-tertiary-container font-label-caps text-label-caps border border-tertiary-fixed">MEDIUM</span>
+<span class="font-data-mono text-data-mono text-on-surface-variant">Oct 14</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface mb-stack-sm line-clamp-2 flex-grow">Steel Framing Inspection</h3>
+<div class="flex items-center justify-between mt-auto pt-stack-sm border-t border-outline-variant/50">
+<div class="flex -space-x-2">
+<img alt="Assignee" class="w-6 h-6 rounded-full border border-surface-container-lowest" data-alt="A tiny circular profile picture of a safety inspector." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvoIPCazs7V8zZkgTSM6vr1wz4zuPc-hlR4z-ePN-BmSLkBod8hhFltJfhNpuY5KqoaRZsV9F8Bz3e_wdRjFVfhpeu4p7B5SjRcGQFFCv3VBgiJ7qlQlnHJsWTnXH8mIGF_yUsBGbsJGmX7AEFk-UGHKjVk5EiOKM4RIOtxZ59QrmwUXw7EsXLq_pCHDiYYcMClBKZQKRQiVppXik3laQsEt0TdbpCIzuZ4oU1-1Hnswdl-6SB9ktlE1LvhBIdD8aw_5QnkrJZVbbo"/>
+</div>
+<div class="flex items-center gap-stack-sm">
+<span class="font-data-mono text-data-mono text-primary-container">10%</span>
+<svg class="w-6 h-6 progress-ring" viewbox="0 0 36 36">
+<circle class="text-surface-variant stroke-current" cx="18" cy="18" fill="transparent" r="14" stroke-width="4"></circle>
+<circle class="text-primary-container stroke-current progress-ring__circle" cx="18" cy="18" fill="transparent" r="14" stroke-dasharray="87.96" stroke-dashoffset="79.16" stroke-width="4"></circle>
+</svg>
+</div>
+</div>
+</div>
+<!-- Task Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-stack-md hover:border-primary-container transition-colors group relative cursor-pointer flex flex-col h-full rounded">
+<div class="flex justify-between items-start mb-stack-sm">
+<span class="inline-flex items-center px-2 py-1 rounded bg-tertiary-fixed/50 text-on-tertiary-container font-label-caps text-label-caps border border-tertiary-fixed">MEDIUM</span>
+<span class="font-data-mono text-data-mono text-on-surface-variant">Oct 15</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface mb-stack-sm line-clamp-2 flex-grow">HVAC Ducting Installation Level 2</h3>
+<div class="flex items-center justify-between mt-auto pt-stack-sm border-t border-outline-variant/50">
+<div class="flex -space-x-2">
+<img alt="Assignee" class="w-6 h-6 rounded-full border border-surface-container-lowest" data-alt="A tiny circular profile picture of an HVAC technician." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6NwX3O-iJBSrQWZ9BBCJLfe5wbGzGFIpqjnrNIsyiheLg0Jelw6C6BTKI93Ny10DGV9TM5NkO35YZfGUWSb2kgtKaeAwYL0Rwtv6c6-gcZYEnBJY8jzOONU7ZVCeG_CpI0cgmTmVigqb97oYFGWee03IzJsReOJjw30Q66S9Q7ahuric1glslAem6FkHbDjTEw_T7FUZ1SKLJkLeMEM43hjVjx4ifNrg4wI7CvjIxxeF80boJmNTJaxntv6-vE1LmXO8gzPzect1Y"/>
+<img alt="Assignee" class="w-6 h-6 rounded-full border border-surface-container-lowest" data-alt="A tiny circular profile picture of an engineer." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEkWk7t3rGxM7F39IyCcL3iHFESRNollQ3zdUteoWzEDG3FcOnpqJ3VXfdlXwdesFjvkDnTsqqO13AacA9dbNFnqBw-9MwqjgQjLfKuzAm_H8kJtz-6RezgO939RBLzrpDnf6_GScHGxYQKnLc3RJ-ppzNyaDGDkZvwesRtdDMDohbhJEoISnME1XGxqP2i4D3m-eQ_ILXHG7bUcwUsD0XQWJV1CK0avzhLJXdfWTLyXJ3omOilUWVhXc2bP4bTkD3fl5avR-NbcwT"/>
+</div>
+<div class="flex items-center gap-stack-sm">
+<span class="font-data-mono text-data-mono text-primary-container">80%</span>
+<svg class="w-6 h-6 progress-ring" viewbox="0 0 36 36">
+<circle class="text-surface-variant stroke-current" cx="18" cy="18" fill="transparent" r="14" stroke-width="4"></circle>
+<circle class="text-primary-container stroke-current progress-ring__circle" cx="18" cy="18" fill="transparent" r="14" stroke-dasharray="87.96" stroke-dashoffset="17.59" stroke-width="4"></circle>
+</svg>
+</div>
+</div>
+</div>
+<!-- Task Card 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-stack-md hover:border-primary-container transition-colors group relative cursor-pointer flex flex-col h-full rounded">
+<div class="flex justify-between items-start mb-stack-sm">
+<span class="inline-flex items-center px-2 py-1 rounded bg-surface-variant text-on-surface-variant font-label-caps text-label-caps border border-outline-variant">LOW</span>
+<span class="font-data-mono text-data-mono text-on-surface-variant">Oct 20</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface mb-stack-sm line-clamp-2 flex-grow">Site Cleanup &amp; Debris Removal</h3>
+<div class="flex items-center justify-between mt-auto pt-stack-sm border-t border-outline-variant/50">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-data-mono text-[10px] border border-surface-container-lowest">UN</div>
+</div>
+<div class="flex items-center gap-stack-sm">
+<span class="font-data-mono text-data-mono text-primary-container">0%</span>
+<svg class="w-6 h-6 progress-ring" viewbox="0 0 36 36">
+<circle class="text-surface-variant stroke-current" cx="18" cy="18" fill="transparent" r="14" stroke-width="4"></circle>
+<circle class="text-primary-container stroke-current progress-ring__circle" cx="18" cy="18" fill="transparent" r="14" stroke-dasharray="87.96" stroke-dashoffset="87.96" stroke-width="4"></circle>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Side Panel -->
+<aside class="w-[400px] bg-surface border-l border-outline-variant shadow-[-4px_0_24px_rgba(0,0,0,0.05)] flex flex-col h-[calc(100vh-64px)] fixed right-0 top-16 transition-transform duration-300 transform translate-x-full z-50 shadow-sm" id="detail-panel">
+<!-- Panel Header -->
+<div class="px-container-margin py-stack-lg border-b border-outline-variant flex justify-between items-start bg-surface-container-lowest">
+<div>
+<div class="flex items-center gap-unit mb-unit">
+<span class="font-data-mono text-data-mono text-on-surface-variant">T-4029</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-sm text-[11px] font-semibold bg-[#ffeb3b]/20 text-[#f57f17]">IN PROGRESS</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Foundation Pour</h2>
+</div>
+<button aria-label="Close panel" class="text-on-surface-variant hover:text-on-surface transition-colors p-1 rounded hover:bg-surface-container-low" onclick="togglePanel(false)">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Panel Content Scrollable -->
+<div class="flex-1 overflow-y-auto custom-scrollbar p-container-margin flex flex-col gap-stack-lg bg-surface">
+<!-- Sub-tasks Timeline -->
+<section>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-stack-md flex items-center gap-unit">
+<span class="material-symbols-outlined text-[16px]">account_tree</span>
+                            Sub-Tasks Timeline
+                        </h3>
+<div class="relative pl-6 border-l-2 border-surface-variant space-y-stack-md">
+<!-- Excavation -->
+<div class="relative">
+<div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-[#4caf50] border-4 border-surface shadow-sm"></div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-stack-md">
+<div class="flex justify-between items-center mb-unit">
+<span class="font-body-sm text-body-sm font-medium text-on-surface line-through text-on-surface-variant">Excavation</span>
+<span class="material-symbols-outlined text-[16px] text-[#4caf50]">check_circle</span>
+</div>
+<div class="font-data-mono text-data-mono text-on-surface-variant text-[11px]">Oct 20 - Oct 22</div>
+</div>
+</div>
+<!-- Forming -->
+<div class="relative">
+<div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-primary-container border-4 border-surface shadow-sm"></div>
+<div class="bg-primary-container/5 border border-primary-container/30 rounded p-stack-md">
+<div class="flex justify-between items-center mb-unit">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Forming</span>
+<span class="material-symbols-outlined text-[16px] text-primary-container animate-pulse">pending</span>
+</div>
+<div class="font-data-mono text-data-mono text-primary-container text-[11px]">Oct 23 - Oct 24</div>
+</div>
+</div>
+<!-- Rebar -->
+<div class="relative">
+<div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-surface-variant border-4 border-surface shadow-sm"></div>
+<div class="bg-surface-container-low border border-outline-variant/50 rounded p-stack-md opacity-70">
+<div class="flex justify-between items-center mb-unit">
+<span class="font-body-sm text-body-sm font-medium text-on-surface-variant">Rebar</span>
+</div>
+<div class="font-data-mono text-data-mono text-on-surface-variant text-[11px]">Oct 25 - Oct 26</div>
+</div>
+</div>
+</div>
+</section>
+<div class="h-px bg-outline-variant/50"></div>
+<!-- Resource Expenditure -->
+<section>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-stack-md flex items-center gap-unit">
+<span class="material-symbols-outlined text-[16px]">inventory_2</span>
+                            Resource Expenditure
+                        </h3>
+<div class="space-y-stack-md">
+<!-- Labour -->
+<div class="flex items-center justify-between bg-surface-container-lowest border border-outline-variant rounded p-stack-md">
+<div>
+<div class="font-body-sm text-body-sm font-medium text-on-surface">Labour</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant text-[12px]">Crew Hours</div>
+</div>
+<div class="flex items-center gap-unit">
+<button class="w-8 h-8 flex items-center justify-center border border-outline-variant rounded hover:bg-surface-container-low hover:border-primary-container text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<input class="w-16 text-center font-data-mono text-data-mono border-y border-outline-variant border-x-0 bg-transparent py-1.5 focus:ring-0 focus:border-primary-container" readonly="" type="text" value="120"/>
+<button class="w-8 h-8 flex items-center justify-center border border-outline-variant rounded hover:bg-surface-container-low hover:border-primary-container text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+<!-- Equipment -->
+<div class="flex items-center justify-between bg-surface-container-lowest border border-outline-variant rounded p-stack-md">
+<div>
+<div class="font-body-sm text-body-sm font-medium text-on-surface">Equipment</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant text-[12px]">Machinery Days</div>
+</div>
+<div class="flex items-center gap-unit">
+<button class="w-8 h-8 flex items-center justify-center border border-outline-variant rounded hover:bg-surface-container-low hover:border-primary-container text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<input class="w-16 text-center font-data-mono text-data-mono border-y border-outline-variant border-x-0 bg-transparent py-1.5 focus:ring-0 focus:border-primary-container" readonly="" type="text" value="3"/>
+<button class="w-8 h-8 flex items-center justify-center border border-outline-variant rounded hover:bg-surface-container-low hover:border-primary-container text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<div class="h-px bg-outline-variant/50"></div>
+<!-- Notifications -->
+<section>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-stack-md flex items-center gap-unit">
+<span class="material-symbols-outlined text-[16px]">notifications</span>
+                            Notifications
+                        </h3>
+<div class="space-y-stack-sm bg-surface-container-lowest border border-outline-variant rounded p-stack-md">
+<!-- Status Changes -->
+<label class="flex items-center justify-between py-2 cursor-pointer group">
+<span class="font-body-sm text-body-sm text-on-surface group-hover:text-primary-container transition-colors">Status Changes</span>
+<div class="relative inline-flex items-center">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container transition-colors"></div>
+</div>
+</label>
+<!-- Deadline Reminders -->
+<label class="flex items-center justify-between py-2 cursor-pointer group border-t border-outline-variant/30 pt-3">
+<span class="font-body-sm text-body-sm text-on-surface group-hover:text-primary-container transition-colors">Deadline Reminders</span>
+<div class="relative inline-flex items-center">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container transition-colors"></div>
+</div>
+</label>
+</div>
+</section>
+</div>
+<!-- Panel Footer / Actions -->
+<div class="px-container-margin py-stack-md border-t border-outline-variant bg-surface-container-lowest flex gap-stack-md">
+<button class="flex-1 py-2 border border-outline-variant bg-surface rounded font-body-sm text-body-sm text-on-surface font-medium hover:bg-surface-container-low transition-colors" onclick="togglePanel(false)">
+                        Cancel
+                    </button>
+<button class="flex-1 py-2 bg-primary-container text-on-primary rounded font-body-sm text-body-sm font-semibold hover:bg-[#e07520] transition-colors shadow-sm flex items-center justify-center gap-unit">
+<span class="material-symbols-outlined text-[18px]">save</span>
+                        Save Changes
+                    </button>
+</div>
+</aside>
+<script>
+    function togglePanel(open) {
+        const panel = document.getElementById('detail-panel');
+        const mainContent = document.getElementById('main-content');
+        
+        if (open) {
+            panel.classList.remove('translate-x-full');
+            panel.classList.add('translate-x-0');
+            mainContent.classList.add('pr-[400px]');
+        } else {
+            panel.classList.add('translate-x-full');
+            panel.classList.remove('translate-x-0');
+            mainContent.classList.remove('pr-[400px]');
+        }
+    }
+</script>
+</body></html>
