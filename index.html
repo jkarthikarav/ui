@@ -127,6 +127,31 @@
             line-height: 1.6;
         }
 
+        
+  .pg-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'League Spartan', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, opacity 0.18s ease;
+    line-height: 1.6;
+    background: #2c5828;
+    color: #f7f4ee;
+    border-color: #2c5828;
+  }
+  .pg-btn:hover { background: #1e3d1c;
+            border-color: #1e3d1c; }
+  .pg-btn.active { opacity: 0.88; }
+  .pg-btn:disabled { opacity: 0.35; cursor: default; }
+
         .karthik-btn--primary {
             background: #2c5828;
             color: #f7f4ee;
@@ -159,126 +184,27 @@
 </header>
 <!-- Main Content -->
 <main class="flex-grow max-w-container-max mx-auto px-margin-desktop py-12 w-full">
+  <h4 class="text-on-background font-bold mb-4">Explore UI Designs</h4>
+  <div class="bg-surface-paper border border-border-subtle rounded-lg overflow-hidden shadow-sm">
+    <table class="w-full text-left border-collapse">
+      <thead>
+        <tr class="bg-surface-container-low border-b border-border-subtle">
+          <th class="px-gutter py-4 font-label-md text-label-md text-text-muted uppercase tracking-wider">Name</th>
+          <th class="px-gutter py-4 font-label-md text-label-md text-text-muted uppercase tracking-wider">Date</th>
+          <th class="px-gutter py-4 font-label-md text-label-md text-text-muted uppercase tracking-wider">Original Link</th>
+          <th class="px-gutter py-4 font-label-md text-label-md text-text-muted uppercase tracking-wider">My Design</th>
+        </tr>
+      </thead>
+      <tbody id="table-body" class="divide-y divide-border-subtle"></tbody>
+    </table>
+  </div>
 
-<div class="bg-surface-paper border border-border-subtle rounded-lg overflow-hidden shadow-sm">
-<table class="w-full text-left border-collapse">
-<thead>
-<tr class="bg-surface-container-low border-b border-border-subtle">
-<th class="px-gutter py-4 font-label-md text-label-md text-text-muted uppercase tracking-wider">Name</th>
-<th class="px-gutter py-4 font-label-md text-label-md text-text-muted uppercase tracking-wider">Date</th>
-<th class="px-gutter py-4 font-label-md text-label-md text-text-muted uppercase tracking-wider">Original Link</th>
-<th class="px-gutter py-4 font-label-md text-label-md text-text-muted uppercase tracking-wider">My Design</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-border-subtle">
-
-    <tr class="hover:bg-surface-container-highest/5 transition-colors">
-        <td class="px-gutter py-6">
-            <div class="flex items-center gap-3">
-                <span class="font-body-lg font-semibold text-on-surface">Selenium - Home Page Concept</span>
-            </div>
-        </td>
-        <td class="px-gutter py-6 text-body-md text-on-surface-variant">
-            Nov 2025
-        </td>
-        <td class="px-gutter py-6 text-body-md text-on-surface-variant">
-            <a class="karthik-btn karthik-btn--primary" href="https://www.selenium.dev/" target="_blank">View<span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
-        </td>
-        <td class="px-gutter py-6 text-body-md text-on-surface-variant">
-            <a class="karthik-btn karthik-btn--primary" href="selenium.html" target="_blank">View<span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
-        </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container-highest/5 transition-colors">
-        <td class="px-gutter py-6">
-            <div class="flex items-center gap-3">
-                <span class="font-body-lg font-semibold text-on-surface">CHLAVM - Education &amp; Learning Concept</span>
-            </div>
-        </td>
-        <td class="px-gutter py-6 text-body-md text-on-surface-variant">
-            Mar 2025
-        </td>
-        <td class="px-gutter py-6 text-body-md text-on-surface-variant">
-            Original Idea
-        </td>
-        <td class="px-gutter py-6 text-body-md text-on-surface-variant">
-            <a class="karthik-btn karthik-btn--primary" href="chlavm-edu.html" target="_blank">View<span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
-        </td>
-    </tr>
-
-    <tr class="hover:bg-surface-container-highest/5 transition-colors">
-        <td class="px-gutter py-6">
-            <div class="flex items-center gap-3">
-                <span class="font-body-lg font-semibold text-on-surface">CHLAVM - Embassies &amp; Consulates Concept</span>
-            </div>
-        </td>
-        <td class="px-gutter py-6 text-body-md text-on-surface-variant">
-            Mar 2025
-        </td>
-        <td class="px-gutter py-6 text-body-md text-on-surface-variant">
-            <a class="karthik-btn karthik-btn--primary" href="https://www.chlavm.ca/en/community-in-action/embassies-and-consulates" target="_blank">View<span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
-        </td>
-        <td class="px-gutter py-6 text-body-md text-on-surface-variant">
-            <a class="karthik-btn karthik-btn--primary" href="chlavm-embcon.html" target="_blank">View<span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
-        </td>
-    </tr>
-
-    <tr class="hover:bg-surface-container-highest/5 transition-colors">
-        <td class="px-gutter py-6">
-            <div class="flex items-center gap-3">
-                <span class="font-body-lg font-semibold text-on-surface">Note4U - Marketing Landing Page</span>
-            </div>
-        </td>
-        <td class="px-gutter py-6 text-body-md text-on-surface-variant">
-            Jan 2025
-        </td>
-        <td class="px-gutter py-6 text-body-md text-on-surface-variant">
-            Original Idea
-        </td>
-        <td class="px-gutter py-6 text-body-md text-on-surface-variant">
-            <a class="karthik-btn karthik-btn--primary" href="note4u.html" target="_blank">View<span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
-        </td>
-    </tr>
-
-    <tr class="hover:bg-surface-container-highest/5 transition-colors">
-        <td class="px-gutter py-6">
-            <div class="flex items-center gap-3">
-                <span class="font-body-lg font-semibold text-on-surface">Epitome - Tech Training One-Pager Mockup</span>
-            </div>
-        </td>
-        <td class="px-gutter py-6 text-body-md text-on-surface-variant">
-            Dec 2022
-        </td>
-        <td class="px-gutter py-6 text-body-md text-on-surface-variant">
-            Client Concept Mockup
-        </td>
-        <td class="px-gutter py-6 text-body-md text-on-surface-variant">
-            <a class="karthik-btn karthik-btn--primary" href="epitome.html" target="_blank">View<span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
-        </td>
-    </tr>
-
-    <tr class="hover:bg-surface-container-highest/5 transition-colors">
-        <td class="px-gutter py-6">
-            <div class="flex items-center gap-3">
-                <span class="font-body-lg font-semibold text-on-surface">Caterpillar - SaaS Dashboard Design</span>
-            </div>
-        </td>
-        <td class="px-gutter py-6 text-body-md text-on-surface-variant">
-            Jan 2020
-        </td>
-        <td class="px-gutter py-6 text-body-md text-on-surface-variant">
-            Internship Project
-        </td>
-        <td class="px-gutter py-6 text-body-md text-on-surface-variant">
-            <a class="karthik-btn karthik-btn--primary" href="CAT-Page1.html" target="_blank">View<span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
-        </td>
-    </tr>
-
-</tbody>
-</table>
-</div>
-
+  <div class="flex items-center justify-between mt-4">
+    <span id="page-info" class="text-sm text-text-muted"></span>
+    <div id="pagination" class="flex gap-1.5"></div>
+  </div>
 </main>
+
 
 <footer class="w-full mt-auto bg-surface-container-low" style="background: #173015;">
 
@@ -289,6 +215,73 @@
         </a>
     </div>
 </footer>
+
+
+<script>
+  const items = [
+    { name: "Selenium - Home Page Concept", date: "Nov 2025", originalLabel: "View", originalHref: "https://www.selenium.dev/", designHref: "selenium.html" },
+    { name: "CHLAVM - Education &amp; Learning Concept", date: "Mar 2025", originalLabel: "Original Idea", originalHref: null, designHref: "chlavm-edu.html" },
+    { name: "CHLAVM - Embassies &amp; Consulates Concept", date: "Mar 2025", originalLabel: "View", originalHref: "https://www.chlavm.ca/en/community-in-action/embassies-and-consulates", designHref: "chlavm-embcon.html" },
+    { name: "Note4U - Marketing Landing Page", date: "Jan 2025", originalLabel: "Original Idea", originalHref: null, designHref: "note4u.html" },
+    { name: "Epitome - Tech Training One-Pager Mockup", date: "Dec 2022", originalLabel: "Client Concept Mockup", originalHref: null, designHref: "epitome.html" },
+    { name: "Caterpillar - SaaS Dashboard Design - SiteTrack - Project List", date: "Jan 2020", originalLabel: "Internship Project", originalHref: null, designHref: "CAT-Page1.html" },
+    { name: "Caterpillar - SaaS Dashboard Design - SiteTrack - Project View", date: "Jan 2020", originalLabel: "Internship Project", originalHref: null, designHref: "CAT-Page2.html" },
+    { name: "Caterpillar - SaaS Dashboard Design - SiteTrack - Task View", date: "Jan 2020", originalLabel: "Internship Project", originalHref: null, designHref: "CAT-Page3.html" },
+  ];
+
+  const PER_PAGE = 5;
+  let currentPage = 1;
+  const totalPages = Math.ceil(items.length / PER_PAGE);
+
+  function linkBtn(label, href) {
+    if (href) return `<a class="karthik-btn karthik-btn--primary" href="${href}" target="_blank">${label}<span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>`;
+    return `<span class="text-body-md text-on-surface-variant">${label}</span>`;
+  }
+
+  function render() {
+    const start = (currentPage - 1) * PER_PAGE;
+    const slice = items.slice(start, start + PER_PAGE);
+
+    document.getElementById('table-body').innerHTML = slice.map(item => `
+      <tr class="hover:bg-surface-container-highest/5 transition-colors">
+        <td class="px-gutter py-6"><span class="font-body-lg font-semibold text-on-surface">${item.name}</span></td>
+        <td class="px-gutter py-6 text-body-md text-on-surface-variant">${item.date}</td>
+        <td class="px-gutter py-6 text-body-md text-on-surface-variant">${linkBtn(item.originalLabel, item.originalHref)}</td>
+        <td class="px-gutter py-6 text-body-md text-on-surface-variant">${linkBtn('View', item.designHref)}</td>
+      </tr>
+    `).join('');
+
+    document.getElementById('page-info').textContent =
+      `Showing ${start + 1}–${Math.min(start + PER_PAGE, items.length)} of ${items.length}`;
+
+    const pg = document.getElementById('pagination');
+    pg.innerHTML = '';
+
+    const prev = document.createElement('button');
+    prev.className = 'pg-btn';
+    prev.innerHTML = '&lsaquo;';
+    prev.disabled = currentPage === 1;
+    prev.onclick = () => { currentPage--; render(); };
+    pg.appendChild(prev);
+
+    for (let p = 1; p <= totalPages; p++) {
+      const b = document.createElement('button');
+      b.className = 'pg-btn' + (p === currentPage ? ' active' : '');
+      b.textContent = p;
+      b.onclick = ((_p) => () => { currentPage = _p; render(); })(p);
+      pg.appendChild(b);
+    }
+
+    const next = document.createElement('button');
+    next.className = 'pg-btn';
+    next.innerHTML = '&rsaquo;';
+    next.disabled = currentPage === totalPages;
+    next.onclick = () => { currentPage++; render(); };
+    pg.appendChild(next);
+  }
+
+  render();
+</script>
 
 </body>
 </html>
